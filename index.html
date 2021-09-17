@@ -1,0 +1,1862 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta charset="UTF-8">
+    <title>Eloqua and Salesforce File Name Generator</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <style>
+        .header img {
+            float: left;
+            
+            height: 50px;
+            background: #555;
+        }
+
+        .header h1 {
+            position: relative;
+            top: -10px;
+            left: 10px;
+        }
+
+        .form-group{
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .input-small{
+            font-size: 11px;
+        }
+        #result-group {
+            display: none;
+        }
+        
+        #form-error {
+            display: none;
+        }
+        
+        .submit-button {
+            display: none;
+        }
+        
+        .hidden-error,
+        .continut {
+            display: none;
+        }
+        
+        .form-group.field-list-option.campaignAssetName {
+            display: none;
+        }
+        
+        legend.group-border {
+            width: inherit;
+            /* Or auto */
+            padding: 0 10px;
+            /* To give a bit of padding on the left and right */
+            border-bottom: none;
+        }
+        
+        fieldset.group-border {
+            border: 1px groove #ddd !important;
+            padding: 0 1.4em 1.4em 1.4em !important;
+            margin: 0 0 1.5em 0 !important;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+
+        .box {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    }
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="header" >
+            <div class="col-xs-12" style="margin-top:34px;">
+                <img src="https://img04.en25.com/EloquaImages/clients/3MCompanyGlobal/%7bfd7bdc5b-9e33-4ebd-a447-c65773ac8760%7d_3m_logo.jpg" alt="logo">
+            <h1 style="text-align: center;">
+
+                Reusable Lead Generation Landing Pages - Asset Names
+            </h1></div>
+
+        </div>
+        <div class="row">
+            
+            <div class="col-md-8" style="padding-left: 0px; margin-bottom:30px;">
+                <label class="control-label input-small" for="namingScheme">Asset type</label>
+                <select name="namingScheme" id="namingScheme" class="form-control input-sm">
+                <option value="" selected="true" >Select one...</option>              
+            </select>
+
+            </div>
+        </div>
+        
+        <div class="row options-instructions-container continut">
+            
+            <div class="row" id="content">
+
+                <form name="nameform">
+                    <fieldset class="group-border">
+                        <legend class="group-border ">Info</legend>
+<div class="box">
+                        
+
+
+
+                            <!-- Select Basic -->
+                            <div class="form-group field-list-option division">
+                                <label class="control-label input-small" for="division">Division</label>
+                                <select name="division" id="division" class="form-control input-sm">
+                                    <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group field-list-option campYear">
+                                <label class="control-label input-small" for="campYear">Year</label>
+                                <select disabled="disabled" name="campYear" id="campYear" class="form-control input-sm">
+                </select>
+                            </div>
+
+                            <div class="form-group field-list-option month">
+                                <label class="control-label input-small" for="month">Month</label>
+                                <select disabled="disabled" name="month" id="month" class="form-control input-sm">
+                                    <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="form-group field-list-option language">
+                                <label class="control-label input-small" for="language">Language</label>
+                                <select disabled="disabled" name="language" id="language" class="form-control input-sm">
+                                <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                  
+                  
+                </select>
+                            </div>
+
+
+
+
+                        
+
+
+
+
+                        
+
+                            <div class="form-group field-list-option country">
+                                <label class="control-label input-small" for="country">Area / Region / Country</label>
+                                <select disabled="disabled" name="country" id="country" class="form-control input-sm">
+                                <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                  <optgroup>
+                    <option value="EMEA" selected="true"  >AREA - EMEA</option>
+                  <option value="GB">United Kingdom</option>
+                  </optgroup>
+                  <optgroup label="_________________________________">
+                  
+                  <option value="GLO">All/Global</option>
+                  <option value="ASIA">AREA - Asia</option>
+                  <option value="GCA">AREA - Greater China Area</option>
+                  <option value="LAT">AREA - Latin America</option>
+                  <option value="USAC">AREA - USAC</option>
+                  <option value="AND">REGION - Andean</option>
+                  <option value="ANZ">REGION - Australia/New Zealand</option>
+                  <option value="BR">REGION - Brazil</option>
+                  <option value="CA&C">REGION - Central American Caribbean</option>
+                  <option value="CER">REGION - Central European Region</option>
+                  <option value="EER">REGION - East Europe Region</option>
+                  <option value="WMR">REGION - Mediterranean Region</option>
+                  <option value="MX">REGION - Mexico</option>
+                  <option value="MEAR">REGION - Middle East Region</option>
+                  <option value="NER">REGION - Northern European Region</option>
+                  <option value="RCISR">REGION - Russia</option>
+                  <option value="SEER">REGION - South East European Region</option>
+                  <option value="SOCO">REGION - Southern Cone</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AR">Argentina</option>
+                  <option value="AU">Australia</option>
+                  <option value="AT">Austria</option>
+                  <option value="AZ">Azerbaijan</option>
+                  <option value="BY">Belarus</option>
+                  <option value="BE">Belgium</option>
+                  <option value="BO">Bolivia</option>
+                  <option value="BR">Brazil</option>
+                  <option value="BG">Bulgaria</option>
+                  <option value="CA">Canada</option>
+                  <option value="CL">Chile</option>
+                  <option value="CN">China</option>
+                  <option value="CO">Colombia</option>
+                  <option value="CR">Costa Rica</option>
+                  <option value="HR">Croatia</option>
+                  <option value="CZ">Czech Republic</option>
+                  <option value="DK">Denmark</option>
+                  <option value="DO">Dominican Republic</option>
+                  <option value="EC">Ecuador</option>
+                  <option value="EG">Egypt</option>
+                  <option value="SV">El Salvador</option>
+                  <option value="EE">Estonia</option>
+                  <option value="FI">Finland</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                  <option value="GR">Greece</option>
+                  <option value="GU">Guam</option>
+                  <option value="GT">Guatemala</option>
+                  <option value="HN">Honduras</option>
+                  <option value="HK">Hong Kong</option>
+                  <option value="HU">Hungary</option>
+                  <option value="IN">India</option>
+                  <option value="ID">Indonesia</option>
+                  <option value="IE">Ireland</option>
+                  <option value="IL">Israel</option>
+                  <option value="IT">Italy</option>
+                  <option value="JM">Jamaica</option>
+                  <option value="JP">Japan</option>
+                  <option value="KZ">Kazakhstan</option>
+                  <option value="KE">Kenya</option>
+                  <option value="KR">Korea</option>
+                  <option value="LV">Latvia</option>
+                  <option value="LT">Lithuania</option>
+                  <option value="MY">Malaysia</option>
+                  <option value="MX">Mexico</option>
+                  <option value="ME">Montenegro</option>
+                  <option value="MA">Morocco</option>
+                  <option value="NL">Netherlands</option>
+                  <option value="NZ">New Zealand</option>
+                  <option value="NI">Nicaragua</option>
+                  <option value="NG">Nigeria</option>
+                  <option value="NO">Norway</option>
+                  <option value="PK">Pakistan</option>
+                  <option value="PA">Panama</option>
+                  <option value="PY">Paraguay</option>
+                  <option value="PE">Peru</option>
+                  <option value="PH">Philippines</option>
+                  <option value="PL">Poland</option>
+                  <option value="PT">Portugal</option>
+                  <option value="PR">Puerto Rico</option>
+                  <option value="RO">Romania</option>
+                  <option value="RU">Russia</option>
+                  <option value="SA">Saudi Arabia</option>
+                  <option value="RS">Serbia</option>
+                  <option value="SG">Singapore</option>
+                  <option value="SK">Slovakia</option>
+                  <option value="SI">Slovenia</option>
+                  <option value="ZA">South Africa</option>
+                  <option value="ES">Spain</option>
+                  <option value="LK">Sri Lanka</option>
+                  <option value="SE">Sweden</option>
+                  <option value="CH">Switzerland</option>
+                  <option value="TW">Taiwan</option>
+                  <option value="TH">Thailand</option>
+                  <option value="TT">Trinidad and Tobago</option>
+                  <option value="TN">Tunisia</option>
+                  <option value="TR">Turkey</option>
+                  <option value="UA">Ukraine</option>
+                  <option value="AE">United Arab Emirates</option>
+                  
+                  <option value="US">United States</option>
+                  <option value="UY">Uruguay</option>
+                  <option value="VE">Venezuela</option>
+                  <option value="VN">Vietnam</option>
+                </optgroup>
+                </select>
+                            </div>
+
+
+
+                            <div class="form-group field-list-option campaignType">
+                                <label class="control-label input-small" for="campaignType">Campaign Tactic</label>
+                                <select disabled="disabled" name="campaignType" id="campaignType" class="form-control input-sm">
+                                <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                  <option value="BCM">bCom</option>
+                  <option value="CHN">Channel</option>
+                  <option value="CON">Content</option>
+                  <option value="CST">Contest</option>
+                  <option value="DEM">Demo/Trial</option>
+                  <option value="ECM">eCommerce</option>
+                  <option value="END">End User</option>
+                  <option value="MUL">Multi-Tactic</option>
+                  <option value="NSL">Newsletter</option>
+                  <option value="OFR">Offer/Promotion</option>
+                  <option value="OFE">Offline Event</option>
+                  <option value="ONE">Online Event</option>
+                  <option value="PR">Press Release</option>
+                  <option value="SAM">Sample</option>
+                  <option value="SOC">Social Media</option>
+                  <option value="SUR">Survey</option>
+                  <option value="TRN">Training</option>
+                  <option value="TO24">Training - ON24</option>
+                  <option value="WBN">Webinar</option>
+                  <option value="WO24">Webinar - ON24</option>
+                  <option value="WEL">Welcome</option>
+                  <option value="SYS">Eloqua System Asset</option>
+                  <option value="OTH">Other</option>
+                </select>
+                            </div>
+
+
+
+                            <div class="form-group field-list-option campaignAssetType">
+                                <label class="control-label input-small" for="campaignAssetType">Campaign Asset Type</label>
+                                <select disabled="disabled" name="campaignAssetType" id="campaignAssetType" class="form-control input-sm">
+                                <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+              
+                  <option value="LP" selected="true" >Landing Page</option>
+
+                </select>
+                            </div>
+
+                            <div class="form-group field-list-option lpType">
+                                <label class="control-label input-small" for="lpType">Landing Page Type</label>
+                                <select disabled="disabled" name="lpType" id="lpType" class="form-control input-sm">
+                                <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                  <option value="Generic" selected="true"   >Generic</option>
+                </select>
+                            </div>
+                        
+
+                        
+
+                            <div class="form-group field-list-option formType">
+                                <label class="control-label input-small" for="formType">Form Type</label>
+                                <select disabled="disabled" name="formType" id="formType" class="form-control input-sm">
+                                <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                                <option value="COC">Contest/Competition</option>
+                                <option value="GAT">Gated Content</option>
+                                <option value="SUB">Subscription</option>
+                                <option value="SUR">Survey</option>
+                                <option value="EVE">3M Customer Event</option>
+                                <option value="CIC">CIC Registration</option>
+                                <option value="PRO">Promotion/Discount</option>
+                                <option value="TRN">Training</option>
+                                <option value="VET">Virtual Event/Tradeshow</option>
+                                <option value="IPE">In Person Event/Tradeshow</option>
+                                <option value="WAR">Warranty</option>
+                                <option value="WEB">Webinar</option>
+                                <option value="ASK">Ask An Expert</option>
+                                <option value="CON">Contact Us</option>
+                                <option value="DEM">Demo Request</option>
+                                <option value="LAR">Large Order</option>
+                                <option value="SAM">Sample Request</option>
+                                <option value="BLN">Blind Form Submit</option>
+                                <option value="OTH">Other</option>
+                </select>
+                            </div>
+
+                            <div class="form-group field-list-option segment">
+                                <label class="control-label input-small" for="segment">Segment</label>
+                                <select disabled="disabled" name="segment" id="segment" class="form-control input-sm">
+                                    <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group field-list-option emailGroup">
+                                <label class="control-label input-small" for="emailGroup">Email Group</label>
+                                <select disabled="disabled" name="emailGroup" id="emailGroup" class="form-control input-sm">
+                                    <option value="" selected="true" disabled="disabled" hidden>Select one...</option>
+                 
+                                </select>
+                            </div>
+
+
+
+
+                            <div class="form-group field-list-option campaignAssetName">
+                                <label class="control-label input-small" for="campaignAssetName">Campaign/Asset Short Name</label>
+                                <div class="input-group">
+
+                                    <input type="text" disabled="disabled" name="campaignAssetName" id="campaignAssetName" class="form-control input-sm">
+                                    <span id="count-char" class="input-group-addon">#</span>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"  onclick="copyToClipboard('campaignAssetName')" >&nbsp;<img src="https://www.freeiconspng.com/uploads/ios7-copy-icon-11.png" style="margin-left: 3px;" width="15" alt="Copy"/></button>
+                                      </span>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <button id="submitButton" type="submit" class="btn btn-primary submit-button">Generate</button>
+
+                        
+                    </fieldset>
+                </div>
+                </form>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="form-group" id="result-group">
+                    <div class="alert alert-success input-group-prepend" role="alert">
+                        <label class="control-label input-small" for="result-text">New Asset Name</label>
+
+                        <input type="text" id="result-text" class="form-control input-sm" style="width:95%; display: inline;">
+                        <img src="https://www.freeiconspng.com/uploads/ios7-copy-icon-11.png" style="margin-left: 3px;" width="15" alt="Copy" onclick="copyToClipboard('result-text')" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+        function init(){
+            populateNamingScheme()
+            populateDivisionDropdown()
+            populateYear()
+            populateMonth()
+            populateLanguage()
+        }
+
+        function populateYear(){
+            var select = $("#campYear")
+            var dt = new Date()
+            var currentYear = dt.getFullYear()
+            for(var i=currentYear-2; i<=(currentYear+2); i++){
+                if (i==currentYear) select.append('<option value=' + i + ' selected="selected">' + i + '</option>')
+                else select.append('<option value=' + i + " "+ ' >' + i + '</option>');
+
+            }
+        }
+
+        function populateMonth(){
+            var select = $("#month")
+            var dt = new Date()
+            for(var i=0; i<12;i++){
+                const date = new Date(dt.getFullYear(), i, 10);  // 2009-11-10
+                const month = date.toLocaleString('default', { month: 'long' });
+                if(i==dt.getMonth()) select.append('<option value=' + (i+1)+' selected="selected">' + month + '</option>');
+                else select.append('<option value=' + (i+1) + " "+ ' >' + month + '</option>');
+            }
+        }
+
+        function populateLanguage(){
+            var select = $("#language")
+            var obj = JSON.parse(params)
+            for (var i = 0; i < obj["select"]["language"].length; i++) {
+                var element = obj["select"]["language"][i];
+                if (element["default"])
+                select.append('<optgroup><option value="' + element["code"] + '" selected="selected">' + element["description"] + '</option></optgroup>');
+            }
+            
+            contor=0
+            for (var i = 0; i < obj["select"]["language"].length; i++) {
+                var element = obj["select"]["language"][i];
+                if (!element["default"]){
+                    if (contor==0)
+                        select.append('<optgroup label="____________________________"><option value="' + element["code"] + '">' + element["description"] + '</option>')
+                    else if(i==(obj["select"]["language"].length-1))
+                        select.append('<option value="' + element["code"] + '">' + element["description"] + '</option></optgroup>');
+                    else select.append('<option value="' + element["code"] + '">' + element["description"] + '</option>');
+                    contor++
+                }
+            }
+            
+
+        }
+        
+        function populateNamingScheme(){
+            var select = $("#namingScheme")
+            var obj = JSON.parse(params)
+            for (var i = 0; i < obj["select"]["namingScheme"].length; i++) {
+                var element = obj["select"]["namingScheme"][i];
+                select.append('<option value=' + element["code"] + '>' + element["description"] + '</option>');
+            }
+        }
+        function populateDivisionDropdown() {
+            var select = $("#division")
+            var obj = JSON.parse(division)
+            for (var i = 0; i < obj["division"].length; i++) {
+                var element = obj["division"][i];
+                select.append('<option value=' + element["code"] + '>' + element["description"] + '</option>');
+            }
+        }
+
+        
+
+        function replaceAll(str, find, replace) {
+            return str.replace(new RegExp(find, 'g'), replace);
+            }
+
+        function populateSegmentsDropdown() {
+            var select = $('#segment');
+            var divizie = $('#division').val() 
+            var obj = JSON.parse(division)
+            for (var i = 0; i < obj["division"].length; i++) {
+                var element = obj["division"][i];
+                if (element["code"]==divizie){
+                    for (var j = 0; j < element["segments"].length; j++) {
+                        var el = element["segments"][j];
+                        select.append('<option value=' + el["code"] + '>' + el["description"] + '</option>');
+                    }
+                }
+                
+            }
+
+        }
+
+        function populateEmailGroupDropdown() {
+            var select = $('#emailGroup');
+            var cod = $('#division').val() 
+            var segm = $('#segment').val();
+            var obj = JSON.parse(division)
+
+            for (var i = 0; i < obj["division"].length; i++) {
+                var element = obj["division"][i];
+                if (element["code"]==cod){
+                    for (var j = 0; j < element["segments"].length; j++) {
+                        var el = element["segments"][j];
+                        if(el["code"] == segm) {
+                            var email = el["email-groups"]
+                            for (var t = 0; t < email.length; t++) {
+                                select.append('<option value=' + email[t]["code"] + '>' + email[t]["description"] + '</option>');
+
+                            }
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
+
+        function computeShortName() {
+            if ($("#lpType").val() != null && $("#formType").val() != null && $("#segment").val() != null && $("#emailGroup").val() != null) {
+                $(".form-group.field-list-option.campaignAssetName").show();
+                var out = ""
+                var limitChar = 0;
+                if (assetType == "LP") {
+                    out = $("#lpType").val() + "_" +
+                        $("#formType").val() + "_" +
+                        $("#segment").val() + "_" +
+                        $("#emailGroup").val()
+                    limitChar = 35;
+                }
+                if (assetType == "FORM") {
+                    out = $("#lpType").val() + "_" +
+                        $("#segment").val() + "_" +
+                        $("#emailGroup").val()
+                    limitChar = 26;
+                }
+                if (assetType == "URL") {
+                    out =
+                        $("#segment").val() + "-" +
+                        $("#emailGroup").val() + "-" +
+                        $("#formType").val() + "-" +
+                        $("#lpType").val()
+                    out = replaceAll(out,"-", "_")
+                    out = out.toLocaleLowerCase()
+                    limitChar = 35;
+                }
+
+                var counter = out.length
+                $("input#campaignAssetName").val(out);
+                var color = (counter <= limitChar) ? "green" : "crimson"
+                if (counter <= limitChar) {
+                    $('.submit-button').show()
+                } else {
+                    $('.submit-button').hide()
+                }
+                $("#count-char").html(
+                    "<span style='font-weight:bold; color:" + color + "'>" + counter + "</span>"
+                );
+
+            } else {
+                $(".form-group.field-list-option.campaignAssetName").hide();
+                $('.submit-button').hide();
+            }
+        }
+
+        function copyToClipboard(id) {
+            var copyText = document.getElementById(id);
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+            navigator.clipboard.writeText(copyText.value);
+        }
+
+        function checkContent() {
+            if ($("#namingScheme").val() != null && $("#namingScheme").val() != "") {
+                $('.continut').show();
+                $('form')[0].reset();
+                $("label[for='lpType']").text($("#namingScheme option:selected").text()+" Type")
+                // resetFields();
+                $('#result-text').val("");
+                $('#result-group').hide();
+                $('legend.group-border').text($("#namingScheme option:selected").text());
+            } else {
+                $('.continut').hide();
+            }
+        }
+
+        function checkVisibilityLogic(sender) {
+
+            console.log("sender: [" + sender + "] assetType: [" + assetType + "]")
+            switch (assetType) {
+                //LANDING PAGE
+                case "LP":
+                    if (sender == null || sender == "") {
+                        //RESET
+                        $('select#campYear').attr('disabled', 'disabled');
+                        $('select#month').attr('disabled', 'disabled');
+                        $('select#language').attr('disabled', 'disabled');
+                        $('select#country').attr('disabled', 'disabled');
+                        $('select#campaignType').attr('disabled', 'disabled');
+                        $('select#campaignAssetType').attr('disabled', 'disabled');
+                        $('.form-group.campaignType').show()
+                        $('.form-group.campaignAssetType').show()
+                        $('.form-group.campYear').show()
+                        $('.form-group.month').show()
+                        $('.form-group.language').show()
+                        $('select#lpType').attr('disabled', 'disabled');
+                        $('select#formType').attr('disabled', 'disabled');
+                        $('select#segment').attr('disabled', 'disabled');
+                        $('select#emailGroup').attr('disabled', 'disabled');
+                    }
+                    if (sender == "formType") {
+                        if ($("#formType").val() != "") {
+                            console.log("sender: formType")
+                            $('select#segment').removeAttr('disabled');
+
+                        }
+                    }
+                    if (sender == "campaignType") {
+                        if ($("#campaignType").val() != "") {
+                            console.log("sender: campaignType")
+                            $('select#campaignAssetType').removeAttr('disabled');
+                            $('select#lpType').removeAttr('disabled');
+                            $('select#formType').removeAttr('disabled');
+
+                        }
+                    }
+                    if (sender == "division") {
+
+                        if ($("#division").val() != "") {
+                            console.log("sender: division")
+                            $('select#campYear').removeAttr('disabled');
+                            $('select#month').removeAttr('disabled');
+                            $('select#language').removeAttr('disabled');
+                            $('select#country').removeAttr('disabled');
+                            $('select#campaignType').removeAttr('disabled');
+                        }
+                    }
+
+                    break;
+                case "FORM":
+                    if (sender == null || sender == "") {
+                        $('select#campYear').attr('disabled', 'disabled');
+                        $('select#month').attr('disabled', 'disabled');
+                        $('select#language').attr('disabled', 'disabled');
+                        $('select#country').attr('disabled', 'disabled');
+                        $('select#campaignType').attr('disabled', 'disabled');
+                        $('select#campaignAssetType').attr('disabled', 'disabled');
+                        $('select#lpType').attr('disabled', 'disabled');
+                        $('select#formType').attr('disabled', 'disabled');
+                        $('select#segment').attr('disabled', 'disabled');
+                        $('select#emailGroup').attr('disabled', 'disabled');
+                        $('.form-group.campaignType').hide()
+                        $('.form-group.campaignAssetType').hide()
+                        $('.form-group.campYear').show()
+                        $('.form-group.month').show()
+                        $('.form-group.language').show()
+                    }
+                    if (sender == "division") {
+
+                        if ($("#division").val() != "") {
+                            console.log("sender: division")
+                            $('select#campYear').removeAttr('disabled');
+                            $('select#month').removeAttr('disabled');
+                            $('select#language').removeAttr('disabled');
+                            $('select#country').removeAttr('disabled');
+                            $('select#lpType').removeAttr('disabled');
+                            $('select#formType').removeAttr('disabled');
+                        }
+                    }
+                    if (sender == "formType") {
+                        if ($("#formType").val() != "") {
+                            console.log("sender: formType")
+                            $('select#segment').removeAttr('disabled');
+
+                        }
+                    }
+
+                    break;
+                case "URL":
+                    if (sender == null || sender == "") {
+                        $('select#campYear').attr('disabled', 'disabled');
+                        $('select#month').attr('disabled', 'disabled');
+                        $('select#language').attr('disabled', 'disabled');
+                        $('select#country').attr('disabled', 'disabled');
+                        $('select#campaignType').attr('disabled', 'disabled');
+                        $('select#campaignAssetType').attr('disabled', 'disabled');
+                        $('select#lpType').attr('disabled', 'disabled');
+                        $('select#formType').attr('disabled', 'disabled');
+                        $('select#segment').attr('disabled', 'disabled');
+                        $('select#emailGroup').attr('disabled', 'disabled');
+                        $('.form-group.campYear').hide()
+                        $('.form-group.month').hide()
+                        $('.form-group.language').hide()
+                        $('.form-group.campaignType').hide()
+                        $('.form-group.campaignAssetType').hide()
+                    }
+                    if (sender == "division") {
+
+                        if ($("#division").val() != "") {
+                            console.log("sender: division")
+                            $('select#country').removeAttr('disabled');
+                            $('select#lpType').removeAttr('disabled');
+                            $('select#formType').removeAttr('disabled');
+                        }
+                    }
+
+                    if (sender == "formType") {
+                        if ($("#formType").val() != "") {
+                            console.log("sender: formType")
+                            $('select#segment').removeAttr('disabled');
+
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        function resetFields() {
+            $('#result-group').hide();
+            $('.continut').hide();
+            $('#result-text').val("");
+
+            checkVisibilityLogic(null)
+        }
+
+        function resetPage() {
+            resetFields();
+            $('form')[0].reset();
+
+            checkContent();
+
+
+        }
+        $("#namingScheme").change(function() {
+            checkContent();
+
+            assetType = $("#namingScheme").val();
+            checkVisibilityLogic(null)
+
+        });
+        $("#formType").change(function() {
+            checkVisibilityLogic("formType")
+        });
+        $("#campaignType").change(function() {
+            checkVisibilityLogic("campaignType")
+        });
+
+        $("#division").change(function() {
+            checkVisibilityLogic("division")
+
+            populateSegmentsDropdown();
+            computeShortName();
+        });
+
+        $("#segment").change(function() {
+            $('select#emailGroup').removeAttr('disabled');
+            console.log('Segment: ', $(this).val());
+            
+            populateEmailGroupDropdown();
+            computeShortName();
+        });
+
+        $("#lpType").change(function() {
+            computeShortName();
+        });
+        $("#formType").change(function() {
+            computeShortName();
+        });
+        $("#emailGroup").change(function() {
+            computeShortName();
+        });
+        var assetType = $("#namingScheme").val()
+        $(document).ready(function($) {
+            init();
+            console.log(assetType)
+            resetPage();
+            
+            
+            computeShortName();
+
+            //$("#language>option[value='en']").attr('selected', 'selected');
+
+            $('form').submit(function submitFunction(e) {
+                e.preventDefault();
+
+                var month = $('#month').val()
+                var mnt = ""
+                if (parseInt(month) < 10) {
+                    mnt = "0" + month
+                } else {
+                    mnt = month
+                }
+
+                if (assetType == "LP") {
+
+                    $('#result-text').val(
+                        $('#division').val() + '-' +
+                        $('#campYear').val() + mnt + "-" +
+                        $('#language').val() + "_" +
+                        $('#country').val() + "-" +
+                        $('#formType').val() + "-" +
+                        $('#campaignAssetType').val() + "-" +
+                        $('#campaignAssetName').val()
+                    );
+                }
+                if (assetType == "FORM") {
+                    $('#result-text').val(
+                        $('#division').val() + '-' +
+                        $('#campYear').val() + mnt + "-" +
+                        $('#language').val() + "_" +
+                        $('#country').val() + "-" +
+                        $('#formType').val() + "-" +
+                        //$('#campaignAssetType').val() + "-" +
+                        $('#campaignAssetName').val()
+                    );
+                }
+
+                if (assetType == "URL") {
+                    var out = $('#division').val() + '-' +
+                        $('#country').val() + "-" +
+                        $('#campaignAssetName').val()
+                    out = replaceAll(out,"-", "_")
+                    out = out.toLocaleLowerCase()
+
+                    $('#result-text').val("https://engage.3m.com/" +
+                        out);
+                }
+
+
+                $('#result-group').show();
+
+
+            });
+
+        });
+
+        let params =    '{ '+
+                        '  "select": { '+
+                        '    "namingScheme": [ '+
+                        '      { '+
+                        '        "code": "LP", '+
+                        '        "description": "Landing Page" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "FORM", '+
+                        '        "description": "Form" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "URL", '+
+                        '        "description": "Landing Page URL" '+
+                        '      } '+
+                        '    ], '+
+                        '    "language": [ '+
+                        '      { '+
+                        '        "code": "en", '+
+                        '        "description": "English", '+
+                        '        "default": true '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "ar", '+
+                        '        "description": "Arabic" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "be", '+
+                        '        "description": "Belarussian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "bg", '+
+                        '        "description": "Bulgarian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "zh", '+
+                        '        "description": "Chinese" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "hr", '+
+                        '        "description": "Croatian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "cs", '+
+                        '        "description": "Czech" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "da", '+
+                        '        "description": "Danish" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "nl", '+
+                        '        "description": "Dutch" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "et", '+
+                        '        "description": "Estonian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "fi", '+
+                        '        "description": "Finnish" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "fr", '+
+                        '        "description": "French" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "de", '+
+                        '        "description": "German" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "el", '+
+                        '        "description": "Greek" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "iw", '+
+                        '        "description": "Hebrew" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "hu", '+
+                        '        "description": "Hungarian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "id", '+
+                        '        "description": "Indonesian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "it", '+
+                        '        "description": "Italian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "ja", '+
+                        '        "description": "Japanese" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "ko", '+
+                        '        "description": "Korean" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "lv", '+
+                        '        "description": "Latvian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "lt", '+
+                        '        "description": "Lithuanian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "no", '+
+                        '        "description": "Norwegian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "pl", '+
+                        '        "description": "Polish" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "pt", '+
+                        '        "description": "Portuguese" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "ro", '+
+                        '        "description": "Romanian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "ru", '+
+                        '        "description": "Russian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "sr", '+
+                        '        "description": "Serbian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "sk", '+
+                        '        "description": "Slovakian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "sl", '+
+                        '        "description": "Slovenian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "es", '+
+                        '        "description": "Spanish" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "sv", '+
+                        '        "description": "Swedish" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "th", '+
+                        '        "description": "Thai" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "tr", '+
+                        '        "description": "Turkish" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "uk", '+
+                        '        "description": "Ukrainian" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "vi", '+
+                        '        "description": "Vietnamese" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "bil", '+
+                        '        "description": "Bilingual" '+
+                        '      }, '+
+                        '      { '+
+                        '        "code": "none", '+
+                        '        "description": "No Language" '+
+                        '      } '+
+                        '    ] '+
+                        '  } '+
+                        '} '
+
+        let division = '{' +
+                        '  "division": [' +
+                        '    {' +
+                        '      "code": "AAD",' +
+                        '      "description": "AAD - Automotive Aftermarket",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "AutoAf",' +
+                        '          "description": "Automotive Aftermarket",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/aadleadgenpoc_smp3",' +
+                        '              "smp_version": "3"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/aadleadgenpocsmpv3",' +
+                        '              "smp_version": "3"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Auto_AC",' +
+                        '              "description": "Auto-AC News & Features (Auto Care)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "CollRep",' +
+                        '              "description": "Automotive-Collision Repair News & Features (Collision Repair)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Tran_Mar",' +
+                        '              "description": "Tran-Mar News & Features (Marine)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "AASD",' +
+                        '      "description": "AASD - Automotive & Aerospace Solutions Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "Aero",' +
+                        '          "description": "Aerospace",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/aerospacepoc",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/aerospacepoc",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Tran_Aero",' +
+                        '              "description": "Tran-Aero News & Features (Aerospace)"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "Auto",' +
+                        '          "description": "Automotive",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/aasdautomotiveleadgen",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/aasdautomotiveleadgen",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Auto_News",' +
+                        '              "description": "Auto - News & Features (Automotive)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "AdMD",' +
+                        '      "description": "AdMD - Advanced Materials Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "AdvMat",' +
+                        '          "description": "Advanced Materials",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/admdleadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/admdleadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "MF_DSM",' +
+                        '              "description": "MF-D&SM News & Features (Design and Speciality Materials)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Dyneon",' +
+                        '              "description": "Dyneon Fluoropolymers (Dyneon(TM) Chemicals and Chemical Products)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "MOG_OG",' +
+                        '              "description": "MOG-O&G News & Features (Oil & Gas)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "ASD",' +
+                        '      "description": "ASD - Abrasive Systems",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "Abras",' +
+                        '          "description": "Abrasive Systems",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/asdpocsmpv3",' +
+                        '              "smp_version": "3"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/asdpocsmpv3",' +
+                        '              "smp_version": "3"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "MF_News",' +
+                        '              "description": "MF - News & Features (Surface Conditioning and Finishing)"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "PGF",' +
+                        '          "description": "PGF",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/ASD_PGF_PoC_SMPv1",' +
+                        '              "smp_version": "1"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "",' +
+                        '              "smp_version": "0"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "MF_News",' +
+                        '              "description": "MF - News & Features (Surface Conditioning and Finishing)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "CSD",' +
+                        '      "description": "CSD - Commercial Solutions Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "ArchDes",' +
+                        '          "description": "Architectural Design",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/csdarchdesignleadgenglobal",' +
+                        '              "smp_version": "2,5"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/csdleadgencarglobal",' +
+                        '              "smp_version": "2,5"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "ComSol_GS",' +
+                        '              "description": "ComSol-G&S News & Features (Graphics and Signage)"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "CarPer",' +
+                        '          "description": "Car Personalisation",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/csdleadgencarglobal",' +
+                        '              "smp_version": "2,5"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/globalCSDCommercialCleaning",' +
+                        '              "smp_version": "2,5"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Con_Car",' +
+                        '              "description": "Con-Car_Personalisation News & Features (Car Personalisation )"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Tran_News",' +
+                        '              "description": "Tran - News & Features (Transportation)"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "FacSaf",' +
+                        '          "description": "Facility Safety",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/globalCSDFacilitySafety",' +
+                        '              "smp_version": "2,5"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/globalCSDFacilitySafety",' +
+                        '              "smp_version": "2,5"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "ComSol_CC",' +
+                        '              "description": "ComSol-CC News & Features (Facility Management)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Tran_News",' +
+                        '              "description": "Tran - News & Features (Transportation)"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "ComCln",' +
+                        '          "description": "Commercial Cleaning",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/globalCSDCommercialCleaning",' +
+                        '              "smp_version": "2,5"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/csdarchdesignleadgenglobal",' +
+                        '              "smp_version": "2,5"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "ComSol_CC",' +
+                        '              "description": "ComSol-CC News & Features (Facility Management)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Tran_News",' +
+                        '              "description": "Tran - News & Features (Transportation)"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "GraphS",' +
+                        '          "description": "Graphics Signage",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/csdgraphicsleadgenglobal",' +
+                        '              "smp_version": "2,5"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/csdgraphicsleadgenglobal",' +
+                        '              "smp_version": "2,5"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "ComSol_GS",' +
+                        '              "description": "ComSol-G&S News & Features (Graphics and Signage)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Tran_News",' +
+                        '              "description": "Tran - News & Features (Transportation)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "DMSD",' +
+                        '      "description": "DMSD - Display Materials & Systems Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "DispMat",' +
+                        '          "description": "Display Materials",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/DMSD_LeadGen_SMP3",' +
+                        '              "smp_version": "3"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/dmsdleadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "PrivFilt",' +
+                        '              "description": "Privacy Filters (Privacy Filters & Screen Protection)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "EMD",' +
+                        '      "description": "EMD - Electrical Markets Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "Elec",' +
+                        '          "description": "Electrical Markets",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/emdleadgenpocs_SMP2",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/emdleadgenpocs",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "EN_ECM",' +
+                        '              "description": "EN-EC&M News & Features (Electrical Construction & Maintenance)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "EN_News",' +
+                        '              "description": "EN - News & Features (Energy)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "EMSD",' +
+                        '      "description": "EMSD - Electronics Markets & Solutions Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "Electro",' +
+                        '          "description": "Electronic Materials",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/EMSD_test_lead_gen",' +
+                        '              "smp_version": "1"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/EMSD_test_lead_gen",' +
+                        '              "smp_version": "1"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Elec_News",' +
+                        '              "description": "Elec - News & Features (Industrial Electronics)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Elec_AE",' +
+                        '              "description": "Elec-AE News & Features (Automotive Electronics )"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Novec",' +
+                        '              "description": "Novec (Chemical and Advanced Materials (Novec™ Solutions))"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Elec_CE",' +
+                        '              "description": "Elec-CE News & Features (Consumer Electronics)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Elec_DC",' +
+                        '              "description": "Elec-DC News & Features (Data Centres)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Elec_Semi",' +
+                        '              "description": "Elec-Semi News & Features (Semiconductor Technology)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "FSD",' +
+                        '      "description": "FSD - Food Safety",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "FoodSaf",' +
+                        '          "description": "Food Safety",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/fsdpocleadgen",' +
+                        '              "smp_version": "1"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/fsdleadgenpocru",' +
+                        '              "smp_version": "1"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Govern",' +
+                        '              "description": "Government (Health Care for Government Agencies)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_News",' +
+                        '              "description": "HC - News & Features (Health Care News and Updates)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Pers",' +
+                        '              "description": "HC - Personal Health Care News & Features"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_FdSaf",' +
+                        '              "description": "HC-FdSaf News & Features (Food and Beverage Solutions)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "IATD",' +
+                        '      "description": "IATD - Industrial Adhesives & Tapes Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "IndAdh",' +
+                        '          "description": "Industrial Adhesives and Tapes",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/iatdmqlpoc",' +
+                        '              "smp_version": "3"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/RU_VHB_LSE_ASK",' +
+                        '              "smp_version": "3"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Tran_News",' +
+                        '              "description": "Tran - News & Features (Transportation)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "MF_BA",' +
+                        '              "description": "MF-B&A News & Features (Bonding & Assembly)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "MMT",' +
+                        '      "description": "MMT - Medical Materials & Technologies",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "MedMat",' +
+                        '          "description": "Medical Materials",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/mmtleadgenpoc",' +
+                        '              "smp_version": "1"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "",' +
+                        '              "smp_version": "0"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Govern",' +
+                        '              "description": "Government (Health Care for Government Agencies)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_News",' +
+                        '              "description": "HC - News & Features (Health Care News and Updates)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Pers",' +
+                        '              "description": "HC - Personal Health Care News & Features"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_MDC",' +
+                        '              "description": "HC-MDC News & Features (Medical Device Components)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "MSD",' +
+                        '      "description": "MSD - Medical Solutions Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "MedSol",' +
+                        '          "description": "Medical Solutions",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/msdleadgenpoc",' +
+                        '              "smp_version": "1"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/msdleadgenpoc",' +
+                        '              "smp_version": "1"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Govern",' +
+                        '              "description": "Government (Health Care for Government Agencies)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_News",' +
+                        '              "description": "HC - News & Features (Health Care News and Updates)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Pers",' +
+                        '              "description": "HC - Personal Health Care News & Features"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Med",' +
+                        '              "description": "HC-Med News & Features (Medical Professionals)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "IPD_Ster",' +
+                        '              "description": "IPD Sterilization (Sterilization Solutions and Educational Support)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "OCSD",' +
+                        '      "description": "OCSD - Oral Care Solutions Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "Dent",' +
+                        '          "description": "Dental",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/oralcareleadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/ocsdleadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Govern",' +
+                        '              "description": "Government (Health Care for Government Agencies)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_News",' +
+                        '              "description": "HC - News & Features (Health Care News and Updates)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Pers",' +
+                        '              "description": "HC - Personal Health Care News & Features"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "OralCare",' +
+                        '              "description": "Health Care-Oral Care News & Features"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "Ortho",' +
+                        '          "description": "Orthodontics",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/oralcareortholeadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/oralcareleadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Govern",' +
+                        '              "description": "Government (Health Care for Government Agencies)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_News",' +
+                        '              "description": "HC - News & Features (Health Care News and Updates)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Pers",' +
+                        '              "description": "HC - Personal Health Care News & Features"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "UNITEK",' +
+                        '              "description": "UNITEK (Oral Care Solutions for Orthodontics)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "PSD",' +
+                        '      "description": "PSD - Personal Safety Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "PersSaf",' +
+                        '          "description": "Personal Safety",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/globalpsdleadgenpoc_v4",' +
+                        '              "smp_version": "4"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/globalpsdleadgenpoc_v4",' +
+                        '              "smp_version": "4"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "MF_Def",' +
+                        '              "description": "MF-Def News & Features (Defence)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Saf_WHS",' +
+                        '              "description": "Saf-WH&S News & Features (Worker Health and Safety)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "SPSD",' +
+                        '      "description": "SPSD - Separation and Purification Science Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "Bioph",' +
+                        '          "description": "Biopharma",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/globalbiopharmaleadgen",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/globalbiopharmaleadgen",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Govern",' +
+                        '              "description": "Government (Health Care for Government Agencies)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_News",' +
+                        '              "description": "HC - News & Features (Health Care News and Updates)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Pers",' +
+                        '              "description": "HC - Personal Health Care News & Features"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_FdSaf",' +
+                        '              "description": "HC-FdSaf News & Features (Food and Beverage Solutions)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_BP",' +
+                        '              "description": "HC-BP News & Features (Biopharma)"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "FoodSer",' +
+                        '          "description": "Food Service",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/foodservicesalesenquiry",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/SPSDIndustrialleadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Govern",' +
+                        '              "description": "Government (Health Care for Government Agencies)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_News",' +
+                        '              "description": "HC - News & Features (Health Care News and Updates)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Pers",' +
+                        '              "description": "HC - Personal Health Care News & Features"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_FdSaf",' +
+                        '              "description": "HC-FdSaf News & Features (Food and Beverage Solutions)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "Saf_WQ",' +
+                        '              "description": "Saf-WQ News & Features (Food Service Water Filtration)"' +
+                        '            }' +
+                        '          ]' +
+                        '        },' +
+                        '        {' +
+                        '          "code": "Ind",' +
+                        '          "description": "Industrial",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/SPSDIndustrialleadgenpoc",' +
+                        '              "smp_version": "2"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/foodservicesalesenquiry",' +
+                        '              "smp_version": "2"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Govern",' +
+                        '              "description": "Government (Health Care for Government Agencies)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_News",' +
+                        '              "description": "HC - News & Features (Health Care News and Updates)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_Pers",' +
+                        '              "description": "HC - Personal Health Care News & Features"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "HC_FdSaf",' +
+                        '              "description": "HC-FdSaf News & Features (Food and Beverage Solutions)"' +
+                        '            },' +
+                        '            {' +
+                        '              "code": "IndFiltr",' +
+                        '              "description": "Industrial Filtration and Gas Management"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    },' +
+                        '    {' +
+                        '      "code": "TSD",' +
+                        '      "description": "TSD - Transportation Safety Division",' +
+                        '      "segments": [' +
+                        '        {' +
+                        '          "code": "TrafSaf",' +
+                        '          "description": "Traffic Safety",' +
+                        '          "landing_page_url": [' +
+                        '            {' +
+                        '              "locale": "default",' +
+                        '              "smp_url": "https://engage.3m.com/tsdpocleadgen",' +
+                        '              "smp_version": "1"' +
+                        '            },' +
+                        '            {' +
+                        '              "locale": "ru",' +
+                        '              "smp_url": "https://engageru.3mrussia.ru/tsdpocleadgen",' +
+                        '              "smp_version": "1"' +
+                        '            }' +
+                        '          ],' +
+                        '          "email-groups": [' +
+                        '            {' +
+                        '              "code": "Saf_RSaf",' +
+                        '              "description": "Saf-RSaf News & Features (Traffic and Vehicle Safety)"' +
+                        '            }' +
+                        '          ]' +
+                        '        }' +
+                        '      ]' +
+                        '    }' +
+                        '  ]' +
+                        '}'
+
+
+    </script>
+
+</body>
+
+</html>
+
+</html>
